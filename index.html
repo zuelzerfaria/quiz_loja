@@ -5,65 +5,140 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Quiz da Loja</title>
   <style>
-    body { font-family: sans-serif; max-width: 600px; margin: 2em auto; }
-    .pergunta { margin-bottom: 1.5em; }
-    button { padding: 0.5em 1em; font-size: 1em; }
+    /* Cores */
+    :root {
+      --primary: #F2D7D7;
+      --secondary: #B38827;
+      --text: #333;
+      --bg: #ffffff;
+    }
+    /* Reset e base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--primary);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 1em;
+    }
+    .container {
+      background: var(--bg);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 100%;
+      padding: 2em;
+    }
+    h1 {
+      font-size: 1.8em;
+      text-align: center;
+      margin-bottom: 1em;
+      color: var(--secondary);
+    }
+    .pergunta {
+      margin-bottom: 1.5em;
+    }
+    .pergunta p {
+      margin-bottom: 0.5em;
+      font-weight: 500;
+    }
+    label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.3em;
+      cursor: pointer;
+    }
+    input[type="radio"] {
+      accent-color: var(--secondary);
+      margin-right: 0.5em;
+      transform: scale(1.2);
+    }
+    button {
+      display: block;
+      margin: 1.5em auto 0;
+      padding: 0.6em 1.2em;
+      font-size: 1em;
+      background-color: var(--secondary);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    button:disabled {
+      background-color: rgba(179, 136, 39, 0.5);
+      cursor: not-allowed;
+    }
+    button:not(:disabled):hover {
+      background-color: #8f6b1f;
+    }
+    @media (max-width: 480px) {
+      .container {
+        padding: 1em;
+      }
+      h1 { font-size: 1.5em; }
+    }
   </style>
 </head>
 <body>
-  <h1>Quiz de 6 Perguntas</h1>
-  <form id="quiz-form">
+  <div class="container">
+    <h1>Quiz de 6 Perguntas</h1>
+    <form id="quiz-form">
 
-    <div class="pergunta">
-      <p>1. Qual seu estilo de roupa favorito?</p>
-      <label><input type="radio" name="q1" value="A"> Casual</label><br>
-      <label><input type="radio" name="q1" value="B"> Esportivo</label><br>
-      <label><input type="radio" name="q1" value="C"> Elegante</label>
-      <label><input type="radio" name="q1" value="D"> Elegante</label>
-    </div>
+      <div class="pergunta">
+        <p>1. Qual seu estilo de roupa favorito?</p>
+        <label><input type="radio" name="q1" value="A"> Casual</label>
+        <label><input type="radio" name="q1" value="B"> Esportivo</label>
+        <label><input type="radio" name="q1" value="C"> Elegante</label>
+        <label><input type="radio" name="q1" value="D"> Moderno</label>
+      </div>
 
-    <div class="pergunta">
-      <p>2. Qual seu hobby preferido?</p>
-      <label><input type="radio" name="q2" value="A"> Ler</label><br>
-      <label><input type="radio" name="q2" value="B"> Esportes</label><br>
-      <label><input type="radio" name="q2" value="C"> Cinema</label>
-      <label><input type="radio" name="q2" value="D"> Cinema</label>
-    </div>
+      <div class="pergunta">
+        <p>2. Qual seu hobby preferido?</p>
+        <label><input type="radio" name="q2" value="A"> Ler</label>
+        <label><input type="radio" name="q2" value="B"> Esportes</label>
+        <label><input type="radio" name="q2" value="C"> Cinema</label>
+        <label><input type="radio" name="q2" value="D"> Arte</label>
+      </div>
 
-    <div class="pergunta">
-      <p>3. Qual sabor de sorvete você escolheria?</p>
-      <label><input type="radio" name="q3" value="A"> Chocolate</label><br>
-      <label><input type="radio" name="q3" value="B"> Baunilha</label><br>
-      <label><input type="radio" name="q3" value="C"> Morango</label>
-      <label><input type="radio" name="q3" value="D"> Morango</label>
-    </div>
+      <div class="pergunta">
+        <p>3. Qual sabor de sorvete você escolheria?</p>
+        <label><input type="radio" name="q3" value="A"> Chocolate</label>
+        <label><input type="radio" name="q3" value="B"> Baunilha</label>
+        <label><input type="radio" name="q3" value="C"> Morango</label>
+        <label><input type="radio" name="q3" value="D"> Pistache</label>
+      </div>
 
-    <div class="pergunta">
-      <p>4. Qual estação do ano você mais gosta?</p>
-      <label><input type="radio" name="q4" value="A"> Verão</label><br>
-      <label><input type="radio" name="q4" value="B"> Inverno</label><br>
-      <label><input type="radio" name="q4" value="C"> Outono/Primavera</label>
-      <label><input type="radio" name="q4" value="D"> Outono/Primavera</label>
-    </div>
+      <div class="pergunta">
+        <p>4. Qual estação do ano você mais gosta?</p>
+        <label><input type="radio" name="q4" value="A"> Verão</label>
+        <label><input type="radio" name="q4" value="B"> Inverno</label>
+        <label><input type="radio" name="q4" value="C"> Outono</label>
+        <label><input type="radio" name="q4" value="D"> Primavera</label>
+      </div>
 
-    <div class="pergunta">
-      <p>5. Qual tipo de música você prefere?</p>
-      <label><input type="radio" name="q5" value="A"> Pop</label><br>
-      <label><input type="radio" name="q5" value="B"> Rock</label><br>
-      <label><input type="radio" name="q5" value="C"> Jazz</label>
-      <label><input type="radio" name="q5" value="D"> Jazz</label>
-    </div>
+      <div class="pergunta">
+        <p>5. Qual tipo de música você prefere?</p>
+        <label><input type="radio" name="q5" value="A"> Pop</label>
+        <label><input type="radio" name="q5" value="B"> Rock</label>
+        <label><input type="radio" name="q5" value="C"> Jazz</label>
+        <label><input type="radio" name="q5" value="D"> Eletrônica</label>
+      </div>
 
-    <div class="pergunta">
-      <p>6. Para onde você viajaria?</p>
-      <label><input type="radio" name="q6" value="A"> Praia</label><br>
-      <label><input type="radio" name="q6" value="B"> Montanha</label><br>
-      <label><input type="radio" name="q6" value="C"> Cidade histórica</label>
-      <label><input type="radio" name="q6" value="D"> Cidade histórica</label>
-    </div>
+      <div class="pergunta">
+        <p>6. Para onde você viajaria?</p>
+        <label><input type="radio" name="q6" value="A"> Praia</label>
+        <label><input type="radio" name="q6" value="B"> Montanha</label>
+        <label><input type="radio" name="q6" value="C"> Cidade histórica</label>
+        <label><input type="radio" name="q6" value="D"> Floresta</label>
+      </div>
 
-    <button type="button" id="btn-result" disabled>Ver Resultado</button>
-  </form>
+      <button type="button" id="btn-result" disabled>Ver Resultado</button>
+    </form>
+  </div>
 
   <script>
     const form = document.getElementById('quiz-form');
