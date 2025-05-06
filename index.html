@@ -164,28 +164,32 @@
         contagem[letter] = (contagem[letter] || 0) + 1;
       });
 
-      // Encontra a letra mais frequente
-      let maiorLetra = null;
-      let maiorCount = 0;
-      for (const [letter, count] of Object.entries(contagem)) {
-        if (count > maiorCount) {
-          maiorCount = count;
-          maiorLetra = letter;
-        }
+      // Encontra o maior número de ocorrências
+      const maiorCount = Math.max(...Object.values(contagem));
+      // Filtra letras com esse maior valor
+      const topLetters = Object.entries(contagem)
+        .filter(([_, count]) => count === maiorCount)
+        .map(([letter]) => letter);
+
+      // Se houver empate (mais de uma letra), vai para empate.html
+      if (topLetters.length > 1) {
+        const qs = topLetters.join('');
+        window.location.href = `empate.html?tie=${qs}`;
+        return;
       }
 
-      // Mapeamento letra → página de produto
+
+      // Caso contrário, redireciona para produto correspondente
       const mapaProdutos = {
         A: 'produto-A.html',
         B: 'produto-B.html',
         C: 'produto-C.html',
         D: 'produto-D.html'
       };
-
-      // Redireciona
-      const destino = mapaProdutos[maiorLetra] || 'index.html';
+      const destino = mapaProdutos[topLetters[0]] || 'index.html';
       window.location.href = destino;
     });
   </script>
 </body>
 </html>
+
