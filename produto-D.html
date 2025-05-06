@@ -37,12 +37,13 @@
     .card::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120%;
-      height: 80px;
-      background: url('https://i.imgur.com/GE0hMmv.png') center/auto 80px no-repeat;
+      top: 0; left: 0;
+      width: 100%; height: 12px;
+      background: repeating-linear-gradient(
+        to right,
+        var(--secondary) 0px, var(--secondary) 12px,
+        transparent 12px, transparent 24px
+      );
       opacity: 0.2;
     }
     h1 {
@@ -96,7 +97,7 @@
     <img class="product-img" src="https://imgur.com/o31GWzw" alt="Afrodite">
     <p class="desc">Mensageira dos deuses e símbolo do arco-íris, íris nos conecta do poder da comunicação, da transformação e da renovação. Sua energia nos ensina a ver o mundo sob novas perspectivas, oferecendo equilíbrio e favorecendo a conexão com o divino.</p>
     <div class="buttons">
-      <a class="buy" href="https://www.mysticamood.com.br/produtos?q=afrodite&page=1" target="_blank">Ver produto</a>
+      <a class="buy" href="https://www.mysticamood.com.br/vela-aromatica-iris-1" target="_blank">Ver produto</a>
       <a class="back" href="index.html">← Voltar ao quiz</a>
     </div>
   </div>

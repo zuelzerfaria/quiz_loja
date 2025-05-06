@@ -37,12 +37,13 @@
     .card::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120%;
-      height: 80px;
-      background: url('https://imgur.com/e9lHLFM') center/auto 80px no-repeat;
+      top: 0; left: 0;
+      width: 100%; height: 12px;
+      background: repeating-linear-gradient(
+        to right,
+        var(--secondary) 0px, var(--secondary) 12px,
+        transparent 12px, transparent 24px
+      );
       opacity: 0.2;
     }
     h1 {
@@ -93,10 +94,10 @@
 <body>
   <div class="card">
     <h1>Sua mãe é a Deusa Afrodite!</h1>
-    <img class="product-img" src="img/afrodite.JPG" alt="Afrodite">
+    <img class="product-img" src="https://imgur.com/e9lHLFM" alt="Afrodite">
     <p class="desc">Deusa do amor, da beleza e da sensualidade, Afrodite nos lembra da importância de nos conectarmos com nossa essência e com o prazer de viver. Sua energia desperta o poder da atração e da harmonia, trazendo confiança para quem busca a renovação do amor, dentro e fora de si mesma.</p>
     <div class="buttons">
-      <a class="buy" href="https://www.mysticamood.com.br/produtos?q=afrodite&page=1" target="_blank">Ver produto</a>
+      <a class="buy" href="https://www.mysticamood.com.br/vela-aromatica-afrodite" target="_blank">Ver produto</a>
       <a class="back" href="index.html">← Voltar ao quiz</a>
     </div>
   </div>
